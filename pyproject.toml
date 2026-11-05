@@ -1,0 +1,94 @@
+# Workspace-level tool configuration shared by all four assessment tasks.
+# Each task directory is an independently installable package with its own
+# pyproject.toml; this file only carries linter, type checker and test runner
+# settings so every task is held to the same standard.
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = [
+  "task1-mcp-server/src",
+  "task2-mcp-gateway/src",
+  "task3-llm-guardrail/src",
+  "task4-model-router/src",
+]
+extend-exclude = [".venv", "build", "dist"]
+
+[tool.ruff.lint]
+select = [
+  "E",      # pycodestyle errors
+  "W",      # pycodestyle warnings
+  "F",      # pyflakes
+  "I",      # isort
+  "N",      # pep8-naming
+  "UP",     # pyupgrade
+  "B",      # flake8-bugbear
+  "C4",     # flake8-comprehensions
+  "T20",    # flake8-print: no print() anywhere (stdout is the MCP wire in task 1)
+  "SIM",    # flake8-simplify
+  "ASYNC",  # flake8-async
+  "PT",     # flake8-pytest-style
+  "RUF",    # ruff-specific rules
+]
+ignore = [
+  "RUF012",  # mutable class attributes: pydantic model_config is intentional
+]
+
+[tool.ruff.lint.per-file-ignores]
+"*/tests/*" = ["ASYNC"]
+"*/scripts/*" = ["T20"]
+"scripts/*" = ["T20"]
+
+[tool.ruff.lint.isort]
+known-first-party = [
+  "customer_mcp_server",
+  "mcp_gateway",
+  "mock_mcp_server",
+  "llm_guardrail_gateway",
+  "mock_llm_provider",
+  "model_router",
+  "mock_model_provider",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unreachable = true
+show_error_codes = true
+pretty = true
+mypy_path = "task1-mcp-server/src:task2-mcp-gateway/src:task3-llm-guardrail/src:task4-model-router/src"
+namespace_packages = true
+explicit_package_bases = true
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+disallow_untyped_decorators = false
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = [
+  "task1-mcp-server/tests",
+  "task2-mcp-gateway/tests",
+  "task3-llm-guardrail/tests",
+  "task4-model-router/tests",
+]
+pythonpath = [
+  "task1-mcp-server/src",
+  "task2-mcp-gateway/src",
+  "task3-llm-guardrail/src",
+  "task4-model-router/src",
+]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+addopts = "-ra --strict-markers --import-mode=importlib"
+markers = [
+  "integration: spawns real processes or sockets",
+]
+filterwarnings = [
+  # Third-party deprecation chatter from uvicorn's optional websockets integration.
+  "ignore::DeprecationWarning:websockets.*",
+  "ignore::DeprecationWarning:uvicorn.protocols.websockets.*",
+]

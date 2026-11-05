@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "customer-mcp-server"
+version = "1.0.0"
+description = "MCP server exposing strictly validated customer tools over the stdio transport"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "mcp>=2.0,<3",
+  "pydantic>=2.7,<3",
+  "anyio>=4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "pytest-asyncio>=0.23",
+  "ruff>=0.5",
+  "mypy>=1.10",
+]
+
+[project.scripts]
+customer-mcp-server = "customer_mcp_server.__main__:run"
+
+[tool.setuptools.packages.find]
+where = ["src"]

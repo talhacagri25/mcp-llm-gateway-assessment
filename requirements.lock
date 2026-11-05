@@ -1,0 +1,44 @@
+# Exact versions of every runtime and development dependency, transitive ones
+# included, as installed in the environment used to verify this repository
+# (Python 3.12, Linux). requirements.txt carries the direct pins and the
+# rationale; regenerate this file with `make lock` and audit it with `make audit`.
+annotated-types==0.7.0
+anyio==4.16.0
+ast_serialize==0.13.1
+attrs==25.4.0
+certifi==2024.12.14
+click==8.3.0
+h11==0.16.0
+httpcore==1.0.7
+httpcore2==2.16.0
+httpx==0.28.1
+httpx2==2.16.0
+idna==3.20
+iniconfig==2.3.0
+jsonschema==4.23.0
+jsonschema-specifications==2024.10.1
+librt==0.16.0
+mcp==2.3.0
+mcp-types==2.3.0
+mypy==2.4.1
+mypy_extensions==1.1.0
+opentelemetry-api==1.45.2
+packaging==24.2
+pathspec==1.1.1
+pluggy==1.6.0
+pydantic==2.14.3
+pydantic_core==2.50.4
+Pygments==2.19.2
+PyJWT==2.10.1
+pytest==9.0.1
+pytest-asyncio==1.4.0
+python-multipart==0.0.20
+referencing==0.36.2
+rpds-py==0.22.3
+ruff==0.17.3
+sse-starlette==3.6.0
+starlette==1.10.0
+truststore==0.10.5
+typing_extensions==4.16.0
+typing-inspection==0.4.5
+uvicorn==0.34.0

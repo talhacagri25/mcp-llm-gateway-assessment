@@ -1,0 +1,10 @@
+{
+  "development_only": true,
+  "tenants": {
+    "dev-only-tenant-a-key-not-for-production-0001": { "tenant_id": "tenant-a" },
+    "dev-only-tenant-b-key-not-for-production-0002": {
+      "tenant_id": "tenant-b",
+      "tokens_per_minute": 2000
+    }
+  }
+}

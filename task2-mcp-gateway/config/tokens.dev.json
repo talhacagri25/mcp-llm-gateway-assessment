@@ -1,0 +1,7 @@
+{
+  "development_only": true,
+  "tokens": {
+    "dev-only-admin-token-not-for-production-0001": { "subject": "alice", "role": "admin" },
+    "dev-only-viewer-token-not-for-production-0002": { "subject": "bob", "role": "viewer" }
+  }
+}

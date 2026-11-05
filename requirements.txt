@@ -1,0 +1,15 @@
+# Fully pinned, known-good set used to develop and verify this repository
+# (Python 3.12, Linux). Each task's pyproject.toml declares compatible ranges;
+# this file exists so a reviewer can reproduce the exact environment.
+mcp==2.3.0
+pydantic==2.14.3
+anyio==4.16.0
+starlette==1.10.0
+uvicorn==0.34.0
+httpx==0.28.1
+
+# Development and verification tooling
+pytest==9.0.1
+pytest-asyncio==1.4.0
+ruff==0.17.3
+mypy==2.4.1

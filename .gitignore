@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Runtime state
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-wal
+*.sqlite3-shm
+data/
+logs/
+
+# Credentials and local configuration: only the *.dev.json examples are tracked
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+tokens.json
+tenants.json
+*.local.json
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
